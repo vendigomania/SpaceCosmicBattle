@@ -15,6 +15,7 @@ namespace Game
         [SerializeField] private GameObject[] hearts; 
 
         [SerializeField] private TMP_Text coinsLable;
+        [SerializeField] private Locale scoreLocale;
         [SerializeField] private TMP_Text scoreLable;
 
         [SerializeField] private BoardLogic board;
@@ -101,6 +102,8 @@ namespace Game
 
         public void Home()
         {
+            StopGame();
+
             MainController.Instance.BackToStartMenu();
         }
 
@@ -176,7 +179,7 @@ namespace Game
             }
 
             coinsLable.text = IngameData.Coins.ToString();
-            scoreLable.text = score.ToString();
+            scoreLable.text = scoreLocale.GetText() + ": " + score.ToString();
         }
 
         int forceShot = 0;

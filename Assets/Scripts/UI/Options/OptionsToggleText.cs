@@ -7,24 +7,24 @@ namespace UI.Options
 {
     public class OptionsToggleText : MonoBehaviour
     {
-        [SerializeField] private string fieldName;
+        [SerializeField] private Locale localeOn;
+        [SerializeField] private Locale localeOff;
         private TMP_Text toggleLable;
 
         private void Start()
         {
             toggleLable = GetComponent<TMP_Text>();
-            fieldName = toggleLable.text;
         }
 
         public void SetOn(bool _isOn)
         {
             if (_isOn)
             {
-                toggleLable.text = $"{fieldName} on";
+                toggleLable.text = $"{localeOn.GetText()}";
             }
             else
             {
-                toggleLable.text = $"{fieldName} off";
+                toggleLable.text = $"{localeOff.GetText()}";
             }
         }
     }

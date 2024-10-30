@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class MainController : MonoBehaviour
 {
+    [SerializeField] private Locale bestLocale;
     [SerializeField] private TMP_Text bestScoreLable;
 
     [SerializeField] private Button playBtn;
@@ -45,7 +46,7 @@ public class MainController : MonoBehaviour
     public void BackToStartMenu()
     {
         startScreen.SetActive(true);
-        bestScoreLable.text = $"Best: {IngameData.Best}";
+        bestScoreLable.text = $"{bestLocale.GetText()}: {IngameData.Best}";
         gamePresenter.SetOff();
     }
 
